@@ -96,6 +96,106 @@ export default function App() {
     document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // ─── ALL PROJECTS ────────────────────────────────────────────────────────────
+  const projects = [
+    {
+      icon: '🔧',
+      title: 'House of Gadgets',
+      live: true,
+      desc: 'Repair service web app with dynamic service listings and booking functionality for UK market.',
+      tags: ['Laravel', 'Livewire', 'MySQL'],
+      link: 'https://houseofgadgets.co.uk/',
+    },
+    {
+      icon: '🏢',
+      title: 'HEX Halifax',
+      live: true,
+      desc: 'Business website with responsive design, clean UI, and optimized performance.',
+      tags: ['Laravel', 'Livewire', 'PHP'],
+      link: 'https://www.hexhalifax.co.uk/',
+    },
+    {
+      icon: '📱',
+      title: 'Phone Syndicate',
+      live: true,
+      desc: 'Repair service platform with smooth UX and scalable Laravel Livewire backend.',
+      tags: ['Laravel', 'Livewire', 'MySQL'],
+      link: 'https://phonesyndicate.co.uk/',
+    },
+    {
+      icon: '📲',
+      title: 'Phone Labs Burnley',
+      live: true,
+      desc: 'Mobile repair website with interactive UI and service-based functionality.',
+      tags: ['Laravel', 'Livewire', 'JS'],
+      link: 'https://phonelabsburnley.co.uk/',
+    },
+    {
+      icon: '🛍️',
+      title: 'Qaswa',
+      live: true,
+      desc: 'Business website with responsive layout and structured content using Laravel Livewire.',
+      tags: ['Laravel', 'Livewire', 'MySQL'],
+      link: 'https://qaswa.co.uk/',
+    },
+    {
+      icon: '🔩',
+      title: 'Repairs Hub',
+      live: true,
+      desc: 'Repair service web app with scalable structure and user-friendly interface.',
+      tags: ['Laravel', 'Livewire', 'PHP'],
+      link: 'https://repairshub.co.uk/',
+    },
+    // ── NEW PROJECTS ──────────────────────────────────────────────────────────
+    {
+      icon: '⚡',
+      title: 'iCanFix',
+      live: true,
+      desc: 'High-performance phone repair platform for UK market. Optimized for speed with Laravel caching — reduced page load from 24s to under 2s.',
+      tags: ['Laravel', 'Livewire', 'MySQL', 'Cache'],
+      link: 'https://icanfix.co.uk/',
+    },
+    {
+      icon: '🛠️',
+      title: 'We Repair Any Phone',
+      live: true,
+      desc: 'Full-service mobile repair web app with dynamic device/service listings, booking flow, and clean responsive UI.',
+      tags: ['Laravel', 'Livewire', 'PHP'],
+      link: 'https://werepairanyphone.co.uk/',
+    },
+    {
+      icon: '📡',
+      title: 'KwikFix Phones',
+      live: true,
+      desc: 'Fast and responsive phone repair platform with smart service navigation, slug-based SEO-friendly URLs, and streamlined booking.',
+      tags: ['Laravel', 'Livewire', 'MySQL'],
+      link: 'https://kwikfixphones.co.uk/',
+    },
+    {
+      icon: '🔬',
+      title: 'Fon Expert',
+      live: true,
+      desc: 'Modern phone repair and buy/sell platform with intuitive service listings, dynamic pricing, and Livewire-powered interactions.',
+      tags: ['Laravel', 'Livewire', 'JS'],
+      link: 'https://fonexpert.uk/',
+    },
+    // ─────────────────────────────────────────────────────────────────────────
+    {
+      icon: '🛒',
+      title: 'POS Web Application',
+      live: false,
+      desc: 'System for managing products, sales, billing, and transactions with full admin panel.',
+      tags: ['Laravel', 'PHP', 'MySQL'],
+    },
+    {
+      icon: '🎓',
+      title: 'Spark Institute',
+      live: false,
+      desc: 'Educational platform with authentication, course management, fee tracking, and admin panel.',
+      tags: ['PHP', 'MySQL', 'Bootstrap'],
+    },
+  ];
+
   return (
     <>
       <canvas id="bg-canvas" ref={canvasRef}></canvas>
@@ -144,7 +244,7 @@ export default function App() {
             <p>I've delivered multiple live projects for UK-based clients and focus on clean, optimized, and user-friendly solutions.</p>
             <div className="about-stats">
               <div className="stat"><div className="stat-num">3+</div><div className="stat-label">Years Exp</div></div>
-              <div className="stat"><div className="stat-num">10+</div><div className="stat-label">Projects</div></div>
+              <div className="stat"><div className="stat-num">12+</div><div className="stat-label">Projects</div></div>
               <div className="stat"><div className="stat-num">4</div><div className="stat-label">Certificates</div></div>
             </div>
           </div>
@@ -159,7 +259,7 @@ export default function App() {
           <div className="title-line"></div>
         </div>
         <div className="skills-grid reveal">
-          {['PHP','Laravel','JavaScript','React','Vue.js','Node.js','MySQL','HTML5','CSS3','Bootstrap','jQuery','WordPress','Livewire','REST API','C++','GitHub'].map((s, i) => (
+          {['PHP', 'Laravel', 'JavaScript', 'React', 'Vue.js', 'Node.js', 'MySQL', 'HTML5', 'CSS3', 'Bootstrap', 'jQuery', 'WordPress', 'Livewire', 'REST API', 'C++', 'GitHub'].map((s, i) => (
             <div key={i} className={`skill-pill${i % 2 === 0 ? ' violet' : ''}`}>{s}</div>
           ))}
         </div>
@@ -189,12 +289,12 @@ export default function App() {
             <ul className="exp-points">
               <li>Developed and maintained multiple live web applications for UK-based clients using Laravel &amp; Livewire</li>
               <li>Built scalable RESTful APIs and backend systems with PHP, Laravel, and MySQL</li>
-              <li>Delivered 6+ production-level projects including House of Gadgets, HEX Halifax, Phone Syndicate, and more</li>
+              <li>Delivered 10+ production-level projects including House of Gadgets, iCanFix, KwikFix Phones, Fon Expert, and more</li>
               <li>Implemented dynamic service listings, booking systems, POS, and admin panels</li>
-              <li>Collaborated with cross-functional teams for UI/UX improvements and performance optimization</li>
+              <li>Optimized site performance — reduced page load from 24s to under 2s on iCanFix using Laravel caching</li>
             </ul>
             <div className="exp-tech">
-              {['Laravel','PHP','Livewire','MySQL','REST API','JavaScript','HTML/CSS'].map((t, i) => <span key={i}>{t}</span>)}
+              {['Laravel', 'PHP', 'Livewire', 'MySQL', 'REST API', 'JavaScript', 'HTML/CSS'].map((t, i) => <span key={i}>{t}</span>)}
             </div>
           </div>
 
@@ -217,7 +317,7 @@ export default function App() {
               <li>Ensured cross-browser compatibility and optimized page performance</li>
             </ul>
             <div className="exp-tech">
-              {['HTML5','CSS3','JavaScript','Bootstrap','jQuery','React'].map((t, i) => <span key={i}>{t}</span>)}
+              {['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'jQuery', 'React'].map((t, i) => <span key={i}>{t}</span>)}
             </div>
           </div>
 
@@ -239,7 +339,7 @@ export default function App() {
               <li>Certified in WordPress Development from DigiSkills.pk</li>
             </ul>
             <div className="exp-tech">
-              {['WordPress','PHP','CSS','Elementor'].map((t, i) => <span key={i}>{t}</span>)}
+              {['WordPress', 'PHP', 'CSS', 'Elementor'].map((t, i) => <span key={i}>{t}</span>)}
             </div>
           </div>
 
@@ -254,16 +354,7 @@ export default function App() {
           <div className="title-line"></div>
         </div>
         <div className="projects-grid">
-          {[
-            { icon: '🔧', title: 'House of Gadgets', live: true, desc: 'Repair service web app with dynamic service listings and booking functionality for UK market.', tags: ['Laravel','Livewire','MySQL'], link: 'https://houseofgadgets.co.uk/' },
-            { icon: '🏢', title: 'HEX Halifax', live: true, desc: 'Business website with responsive design, clean UI, and optimized performance.', tags: ['Laravel','Livewire','PHP'], link: 'https://www.hexhalifax.co.uk/' },
-            { icon: '📱', title: 'Phone Syndicate', live: true, desc: 'Repair service platform with smooth UX and scalable Laravel Livewire backend.', tags: ['Laravel','Livewire','MySQL'], link: 'https://phonesyndicate.co.uk/' },
-            { icon: '📲', title: 'Phone Labs Burnley', live: true, desc: 'Mobile repair website with interactive UI and service-based functionality.', tags: ['Laravel','Livewire','JS'], link: 'https://phonelabsburnley.co.uk/' },
-            { icon: '🛍️', title: 'Qaswa', live: true, desc: 'Business website with responsive layout and structured content using Laravel Livewire.', tags: ['Laravel','Livewire','MySQL'], link: 'https://qaswa.co.uk/' },
-            { icon: '🔩', title: 'Repairs Hub', live: true, desc: 'Repair service web app with scalable structure and user-friendly interface.', tags: ['Laravel','Livewire','PHP'], link: 'https://repairshub.co.uk/' },
-            { icon: '🛒', title: 'POS Web Application', live: false, desc: 'System for managing products, sales, billing, and transactions with full admin panel.', tags: ['Laravel','PHP','MySQL'] },
-            { icon: '🎓', title: 'Spark Institute', live: false, desc: 'Educational platform with authentication, course management, fee tracking, and admin panel.', tags: ['PHP','MySQL','Bootstrap'] },
-          ].map((p, i) => (
+          {projects.map((p, i) => (
             <div key={i} className="project-card card-3d reveal">
               <div className="project-icon">{p.icon}</div>
               <div className="project-title">
@@ -271,7 +362,11 @@ export default function App() {
               </div>
               <div className="project-desc">{p.desc}</div>
               <div className="project-tags">{p.tags.map((t, j) => <span key={j} className="tag">{t}</span>)}</div>
-              {p.link && <a href={p.link} className="project-link" target="_blank" rel="noreferrer">🔗 {p.link.replace('https://','').replace('www.','')}</a>}
+              {p.link && (
+                <a href={p.link} className="project-link" target="_blank" rel="noreferrer">
+                  🔗 {p.link.replace('https://', '').replace('www.', '')}
+                </a>
+              )}
             </div>
           ))}
         </div>
