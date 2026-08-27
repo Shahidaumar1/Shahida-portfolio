@@ -314,10 +314,10 @@ export default function App() {
                 <div className="exp-role">Full Stack PHP Laravel Developer</div>
                 <div className="exp-company">Soft Access Pvt Ltd — Lahore, Pakistan</div>
               </div>
-              <div className="exp-badge">1.5 Years • Current</div>
+              <div className="exp-badge">2 Years • Current</div>
             </div>
             <div className="exp-duration-bar">
-              <div className="exp-duration-label"><span>Duration</span><span>1.5 Years</span></div>
+              <div className="exp-duration-label"><span>Duration</span><span>2 Years</span></div>
               <div className="bar-track"><div className="bar-fill" style={{ width: '100%' }}></div></div>
             </div>
             <ul className="exp-points">
