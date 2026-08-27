@@ -4,7 +4,6 @@ import './App.css';
 export default function App() {
   const canvasRef = useRef(null);
 
-  // Particle background
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
@@ -66,7 +65,6 @@ export default function App() {
     };
   }, []);
 
-  // 3D Card tilt
   useEffect(() => {
     const cards = document.querySelectorAll('.card-3d');
     cards.forEach((card) => {
@@ -82,7 +80,6 @@ export default function App() {
     });
   }, []);
 
-  // Scroll reveal
   useEffect(() => {
     const obs = new IntersectionObserver(
       (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible'); }),
@@ -96,8 +93,78 @@ export default function App() {
     document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // ─── ALL PROJECTS ────────────────────────────────────────────────────────────
+  // ── SKILLS ──────────────────────────────────────────────────────────────────
+  const skills = [
+    'PHP', 'Laravel', 'Python', 'Flask',
+    'AI Integration', 'LLM APIs', 'Gemini API', 'Groq API',
+    'JavaScript', 'React', 'HTML5', 'CSS3', 'Bootstrap', 'jQuery',
+    'Kotlin',
+    'WordPress', 'Divi Builder', 'Elementor', 'SEO',
+    'MySQL', 'REST API', 'Livewire',
+    'Vue.js', 'Node.js', 'C++', 'GitHub',
+  ];
+
+  // ── PROJECTS ─────────────────────────────────────────────────────────────────
   const projects = [
+    // AI Projects
+    {
+      icon: '🤖',
+      title: 'AI Expense Tracker',
+      live: true,
+      desc: 'Intelligent expense tracking app powered by Gemini API. Uses AI to auto-categorize expenses, detect spending patterns, and give smart financial insights. Built with Python Flask, deployed on Vercel.',
+      tags: ['Python', 'Flask', 'Gemini API', 'AI', 'Vercel'],
+      link: 'https://ai-expense-tracker-three-omega.vercel.app/',
+    },
+    {
+      icon: '💬',
+      title: 'AI Chat App',
+      live: true,
+      desc: 'Real-time AI chat application powered by Groq API for ultra-fast LLM responses. Built with Python Flask backend and deployed on Vercel with clean conversational UI.',
+      tags: ['Python', 'Flask', 'Groq API', 'LLM', 'Vercel'],
+      link: 'https://ai-chat-app-zeta-lac.vercel.app/',
+    },
+    // WordPress / SEO
+    {
+      icon: 'snowflake',
+      title: 'Hoda Cooling Center',
+      live: true,
+      desc: 'Full WordPress website built with Divi Builder. Handled complete SEO setup — fixed all broken 404 links with 301 redirects, added meta tags, structured data, and on-page SEO across all pages.',
+      tags: ['WordPress', 'Divi Builder', 'SEO', 'Meta Tags', 'Redirects'],
+      link: 'https://hodacoolingcenter.com/',
+    },
+    // Laravel UK Clients
+    {
+      icon: '⚡',
+      title: 'iCanFix',
+      live: true,
+      desc: 'High-performance phone repair platform for UK market. Optimized with Laravel caching — reduced page load from 24s to under 2s.',
+      tags: ['Laravel', 'Livewire', 'MySQL', 'Cache'],
+      link: 'https://icanfix.co.uk/',
+    },
+    {
+      icon: '🛠️',
+      title: 'We Repair Any Phone',
+      live: true,
+      desc: 'Full-service mobile repair web app with dynamic device/service listings, booking flow, and clean responsive UI.',
+      tags: ['Laravel', 'Livewire', 'PHP'],
+      link: 'https://werepairanyphone.co.uk/',
+    },
+    {
+      icon: '📡',
+      title: 'KwikFix Phones',
+      live: true,
+      desc: 'Fast and responsive phone repair platform with smart service navigation, SEO-friendly slug URLs, and streamlined booking.',
+      tags: ['Laravel', 'Livewire', 'MySQL'],
+      link: 'https://kwikfixphones.co.uk/',
+    },
+    {
+      icon: '🔬',
+      title: 'Fon Expert',
+      live: true,
+      desc: 'Modern phone repair and buy/sell platform with intuitive service listings, dynamic pricing, and Livewire-powered interactions.',
+      tags: ['Laravel', 'Livewire', 'JS'],
+      link: 'https://fonexpert.uk/',
+    },
     {
       icon: '🔧',
       title: 'House of Gadgets',
@@ -146,40 +213,7 @@ export default function App() {
       tags: ['Laravel', 'Livewire', 'PHP'],
       link: 'https://repairshub.co.uk/',
     },
-    // ── NEW PROJECTS ──────────────────────────────────────────────────────────
-    {
-      icon: '⚡',
-      title: 'iCanFix',
-      live: true,
-      desc: 'High-performance phone repair platform for UK market. Optimized for speed with Laravel caching — reduced page load from 24s to under 2s.',
-      tags: ['Laravel', 'Livewire', 'MySQL', 'Cache'],
-      link: 'https://icanfix.co.uk/',
-    },
-    {
-      icon: '🛠️',
-      title: 'We Repair Any Phone',
-      live: true,
-      desc: 'Full-service mobile repair web app with dynamic device/service listings, booking flow, and clean responsive UI.',
-      tags: ['Laravel', 'Livewire', 'PHP'],
-      link: 'https://werepairanyphone.co.uk/',
-    },
-    {
-      icon: '📡',
-      title: 'KwikFix Phones',
-      live: true,
-      desc: 'Fast and responsive phone repair platform with smart service navigation, slug-based SEO-friendly URLs, and streamlined booking.',
-      tags: ['Laravel', 'Livewire', 'MySQL'],
-      link: 'https://kwikfixphones.co.uk/',
-    },
-    {
-      icon: '🔬',
-      title: 'Fon Expert',
-      live: true,
-      desc: 'Modern phone repair and buy/sell platform with intuitive service listings, dynamic pricing, and Livewire-powered interactions.',
-      tags: ['Laravel', 'Livewire', 'JS'],
-      link: 'https://fonexpert.uk/',
-    },
-    // ─────────────────────────────────────────────────────────────────────────
+    // Non-live
     {
       icon: '🛒',
       title: 'POS Web Application',
@@ -215,11 +249,11 @@ export default function App() {
       {/* HERO */}
       <section id="hero">
         <div className="hero-inner reveal">
-          <div className="hero-tag">✦ Full Stack Developer</div>
+          <div className="hero-tag">✦ Full Stack Developer &amp; AI Builder</div>
           <h1 className="hero-name"><span>Shahida Bibi</span></h1>
           <p className="hero-title">
-            PHP Laravel Developer &amp; WordPress Expert<br />
-            Building scalable web apps with modern tech stack
+            PHP Laravel · Python Flask · AI/LLM Integration<br />
+            Building scalable web apps &amp; intelligent AI solutions
           </p>
           <div className="hero-btns">
             <button className="btn-primary" onClick={() => scrollTo('#projects')}>View Projects</button>
@@ -240,11 +274,11 @@ export default function App() {
           </div>
           <div className="about-text">
             <h2>Hello, I'm Shahida 👋</h2>
-            <p>Results-driven Full Stack Web Developer with 3+ years of experience. I specialize in building modern, responsive interfaces and powerful backends using PHP, Laravel, and MySQL.</p>
-            <p>I've delivered multiple live projects for UK-based clients and focus on clean, optimized, and user-friendly solutions.</p>
+            <p>Results-driven Full Stack Developer with 3+ years of experience in PHP Laravel, Python Flask, and AI/LLM integrations. I build modern, responsive web apps and intelligent AI-powered solutions.</p>
+            <p>I've delivered 15+ live projects for UK-based clients and built AI apps using Gemini and Groq APIs — focused on clean, optimized, and user-friendly solutions.</p>
             <div className="about-stats">
               <div className="stat"><div className="stat-num">3+</div><div className="stat-label">Years Exp</div></div>
-              <div className="stat"><div className="stat-num">12+</div><div className="stat-label">Projects</div></div>
+              <div className="stat"><div className="stat-num">15+</div><div className="stat-label">Projects</div></div>
               <div className="stat"><div className="stat-num">4</div><div className="stat-label">Certificates</div></div>
             </div>
           </div>
@@ -259,7 +293,7 @@ export default function App() {
           <div className="title-line"></div>
         </div>
         <div className="skills-grid reveal">
-          {['PHP', 'Laravel', 'JavaScript', 'React', 'Vue.js', 'Node.js', 'MySQL', 'HTML5', 'CSS3', 'Bootstrap', 'jQuery', 'WordPress', 'Livewire', 'REST API', 'C++', 'GitHub'].map((s, i) => (
+          {skills.map((s, i) => (
             <div key={i} className={`skill-pill${i % 2 === 0 ? ' violet' : ''}`}>{s}</div>
           ))}
         </div>
@@ -289,12 +323,58 @@ export default function App() {
             <ul className="exp-points">
               <li>Developed and maintained multiple live web applications for UK-based clients using Laravel &amp; Livewire</li>
               <li>Built scalable RESTful APIs and backend systems with PHP, Laravel, and MySQL</li>
-              <li>Delivered 10+ production-level projects including House of Gadgets, iCanFix, KwikFix Phones, Fon Expert, and more</li>
+              <li>Delivered 13+ production projects including iCanFix, KwikFix Phones, Fon Expert, House of Gadgets, and more</li>
               <li>Implemented dynamic service listings, booking systems, POS, and admin panels</li>
               <li>Optimized site performance — reduced page load from 24s to under 2s on iCanFix using Laravel caching</li>
             </ul>
             <div className="exp-tech">
               {['Laravel', 'PHP', 'Livewire', 'MySQL', 'REST API', 'JavaScript', 'HTML/CSS'].map((t, i) => <span key={i}>{t}</span>)}
+            </div>
+          </div>
+
+          <div className="exp-card reveal">
+            <div className="exp-header">
+              <div className="exp-left">
+                <div className="exp-role">AI Application Developer</div>
+                <div className="exp-company">Personal Projects — Vercel</div>
+              </div>
+              <div className="exp-badge">2025 • Active</div>
+            </div>
+            <div className="exp-duration-bar">
+              <div className="exp-duration-label"><span>Focus</span><span>AI / LLM Apps</span></div>
+              <div className="bar-track"><div className="bar-fill" style={{ width: '80%' }}></div></div>
+            </div>
+            <ul className="exp-points">
+              <li>Built AI-powered web apps using Python Flask integrated with Gemini API and Groq API (LLM)</li>
+              <li>Developed AI Expense Tracker — auto-categorizes expenses and gives smart insights using Gemini</li>
+              <li>Built AI Chat App with ultra-fast LLM responses powered by Groq and clean conversational UI</li>
+              <li>Deployed all AI projects live on Vercel with secure API key and environment variable management</li>
+            </ul>
+            <div className="exp-tech">
+              {['Python', 'Flask', 'Gemini API', 'Groq API', 'LLM', 'Vercel'].map((t, i) => <span key={i}>{t}</span>)}
+            </div>
+          </div>
+
+          <div className="exp-card reveal">
+            <div className="exp-header">
+              <div className="exp-left">
+                <div className="exp-role">WordPress Developer &amp; SEO Specialist</div>
+                <div className="exp-company">Freelance Projects</div>
+              </div>
+              <div className="exp-badge">1 Year</div>
+            </div>
+            <div className="exp-duration-bar">
+              <div className="exp-duration-label"><span>Duration</span><span>1 Year</span></div>
+              <div className="bar-track"><div className="bar-fill" style={{ width: '60%' }}></div></div>
+            </div>
+            <ul className="exp-points">
+              <li>Built WordPress websites using Divi Builder and Elementor with custom layouts and themes</li>
+              <li>Performed full SEO audits — fixed 404 broken links with proper 301 redirects across all pages</li>
+              <li>Added meta tags, structured data (Schema), and on-page SEO to improve search rankings</li>
+              <li>Certified in WordPress Development from DigiSkills.pk</li>
+            </ul>
+            <div className="exp-tech">
+              {['WordPress', 'Divi Builder', 'Elementor', 'SEO', 'PHP', 'CSS'].map((t, i) => <span key={i}>{t}</span>)}
             </div>
           </div>
 
@@ -313,33 +393,10 @@ export default function App() {
             <ul className="exp-points">
               <li>Built responsive, mobile-first UIs using HTML5, CSS3, Bootstrap, JavaScript, and jQuery</li>
               <li>Developed interactive web pages with modern design patterns and animations</li>
-              <li>Created personal portfolio, freelance landing pages, and educational websites</li>
               <li>Ensured cross-browser compatibility and optimized page performance</li>
             </ul>
             <div className="exp-tech">
               {['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'jQuery', 'React'].map((t, i) => <span key={i}>{t}</span>)}
-            </div>
-          </div>
-
-          <div className="exp-card reveal">
-            <div className="exp-header">
-              <div className="exp-left">
-                <div className="exp-role">WordPress Developer</div>
-                <div className="exp-company">Freelance Projects</div>
-              </div>
-              <div className="exp-badge">1 Year</div>
-            </div>
-            <div className="exp-duration-bar">
-              <div className="exp-duration-label"><span>Duration</span><span>1 Year</span></div>
-              <div className="bar-track"><div className="bar-fill" style={{ width: '60%' }}></div></div>
-            </div>
-            <ul className="exp-points">
-              <li>Developed and customized WordPress websites with custom themes and plugins</li>
-              <li>Managed content, SEO optimization, and website maintenance for clients</li>
-              <li>Certified in WordPress Development from DigiSkills.pk</li>
-            </ul>
-            <div className="exp-tech">
-              {['WordPress', 'PHP', 'CSS', 'Elementor'].map((t, i) => <span key={i}>{t}</span>)}
             </div>
           </div>
 
@@ -350,13 +407,13 @@ export default function App() {
       <section id="projects">
         <div className="section-title reveal">
           <h2>Projects</h2>
-          <p>Live and real-world applications</p>
+          <p>Live AI apps, WordPress sites &amp; real-world web applications</p>
           <div className="title-line"></div>
         </div>
         <div className="projects-grid">
           {projects.map((p, i) => (
             <div key={i} className="project-card card-3d reveal">
-              <div className="project-icon">{p.icon}</div>
+              <div className="project-icon">{p.icon === 'snowflake' ? '❄️' : p.icon}</div>
               <div className="project-title">
                 {p.title} {p.live && <span className="live-badge">LIVE</span>}
               </div>
@@ -426,7 +483,7 @@ export default function App() {
       </section>
 
       <footer>
-        <p>Designed &amp; Built with ❤️ by <strong>Shahida Bibi</strong> • Full Stack Developer</p>
+        <p>Designed &amp; Built with ❤️ by <strong>Shahida Bibi</strong> • Full Stack &amp; AI Developer</p>
       </footer>
     </>
   );
