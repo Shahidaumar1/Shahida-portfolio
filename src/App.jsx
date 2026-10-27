@@ -67,6 +67,7 @@ export default function App() {
 
   useEffect(() => {
     const cards = document.querySelectorAll('.card-3d');
+    const cleanups = [];
     cards.forEach((card) => {
       const onMove = (e) => {
         const r = card.getBoundingClientRect();
@@ -77,7 +78,12 @@ export default function App() {
       const onLeave = () => { card.style.transform = ''; };
       card.addEventListener('mousemove', onMove);
       card.addEventListener('mouseleave', onLeave);
+      cleanups.push(() => {
+        card.removeEventListener('mousemove', onMove);
+        card.removeEventListener('mouseleave', onLeave);
+      });
     });
+    return () => cleanups.forEach((fn) => fn());
   }, []);
 
   useEffect(() => {
@@ -95,17 +101,28 @@ export default function App() {
 
   // ── SKILLS ──────────────────────────────────────────────────────────────────
   const skills = [
-    'PHP', 'Laravel', 'Python', 'Flask',
-    'AI Integration', 'LLM APIs', 'Gemini API', 'Groq API',
-    'JavaScript', 'React', 'HTML5', 'CSS3', 'Bootstrap', 'jQuery',
-    'Kotlin',
+    'PHP', 'Laravel', 'Livewire', 'Python', 'Flask', 'CodeIgniter',
+    'JavaScript', 'React', 'Vue.js', 'Node.js', 'HTML5', 'CSS3', 'Bootstrap', 'jQuery',
+    'REST API', 'Payment Gateway Integration', 'Third-Party APIs',
+    'MySQL', 'Auth & Role-Based Access', 'PWA', 'Chart.js',
+    'AI Integration', 'LLM APIs', 'Gemini API', 'Groq API', 'Prompt Engineering',
+    'Claude', 'Cursor', 'Codex',
+    'Kotlin', 'Jetpack Compose', 'C++',
+    'Railway', 'Hostinger / cPanel', 'Gunicorn', 'DNS & SSL/TLS', 'Git', 'GitHub',
     'WordPress', 'Divi Builder', 'Elementor', 'SEO',
-    'MySQL', 'REST API', 'Livewire',
-    'Vue.js', 'Node.js', 'C++', 'GitHub',
   ];
 
   // ── PROJECTS ─────────────────────────────────────────────────────────────────
   const projects = [
+    // Flagship
+    {
+      icon: '🧩',
+      title: 'SoftAccess CRM & HR System',
+      live: true,
+      desc: 'Full-featured company CRM & HR platform built solo end-to-end: customer/deal pipeline, attendance, task assignment with automatic time tracking, payroll, leave approvals, notifications, dashboards, CSV exports and Admin/Employee roles. Installable as a PWA, deployed on Railway with cloud MySQL.',
+      tags: ['Python', 'Flask', 'MySQL', 'Flask-Login', 'Chart.js', 'PWA', 'Railway'],
+      link: 'https://web-production-a3a71.up.railway.app/',
+    },
     // AI Projects
     {
       icon: '🤖',
@@ -122,6 +139,13 @@ export default function App() {
       desc: 'Real-time AI chat application powered by Groq API for ultra-fast LLM responses. Built with Python Flask backend and deployed on Vercel with clean conversational UI.',
       tags: ['Python', 'Flask', 'Groq API', 'LLM', 'Vercel'],
       link: 'https://ai-chat-app-zeta-lac.vercel.app/',
+    },
+    {
+      icon: '📱',
+      title: 'AI Chat — Android App',
+      live: false,
+      desc: 'Native Android AI chat app built with Kotlin and Jetpack Compose, using the Gemini API for conversational responses.',
+      tags: ['Kotlin', 'Jetpack Compose', 'Gemini API', 'Android'],
     },
     // WordPress / SEO
     {
@@ -230,6 +254,90 @@ export default function App() {
     },
   ];
 
+  // ── EXPERIENCE ───────────────────────────────────────────────────────────────
+  const experience = [
+    {
+      role: 'Full Stack PHP Laravel Developer',
+      company: 'Soft Access Pvt Ltd — Lahore, Pakistan',
+      badge: '3 Years • Current',
+      label: 'Duration', value: '3 Years', width: '100%',
+      points: [
+        'Built and maintained 15+ live websites and web applications for UK-based clients using Laravel, Livewire, PHP and MySQL',
+        'Integrated payment gateways, IMEI/device-check services and other third-party APIs into production systems',
+        'Built scalable RESTful backends, dynamic service listings, booking systems, POS and admin panels',
+        'Optimized performance — reduced page load from 24s to under 2s on iCanFix using Laravel caching',
+        'Used AI tools (Claude, ChatGPT) across the development lifecycle for code generation, debugging and code review',
+      ],
+      tech: ['Laravel', 'PHP', 'Livewire', 'MySQL', 'REST API', 'Payment APIs', 'JavaScript'],
+    },
+    {
+      role: 'Python Flask Developer — CRM & HR System',
+      company: 'Soft Access Pvt Ltd — Lahore, Pakistan',
+      badge: '6 Months',
+      label: 'Duration', value: '6 Months', width: '50%',
+      points: [
+        'Designed and built a complete CRM & HR system from scratch: customer/deal pipeline, attendance, tasks, payroll and leave workflows',
+        'Designed the MySQL schema; implemented secure authentication (Flask-Login, password hashing) and Admin/Employee role-based access',
+        'Built REST routes, Chart.js dashboards, CSV exports and file uploads',
+        'Converted the app into an installable Progressive Web App (manifest + service worker) with a fully responsive mobile UI',
+        'Deployed to production on Railway with cloud MySQL, Gunicorn and environment-based configuration',
+      ],
+      tech: ['Python', 'Flask', 'SQLAlchemy', 'MySQL', 'Chart.js', 'PWA', 'Railway'],
+    },
+    {
+      role: 'DevOps / Website Deployment',
+      company: 'Soft Access Pvt Ltd — Lahore, Pakistan',
+      badge: '1 Year',
+      label: 'Duration', value: '1 Year', width: '60%',
+      points: [
+        'Deployed and managed 15+ live PHP/Laravel and WordPress websites on Hostinger using cPanel',
+        'Owned the deployment workflow: domain & DNS setup, file uploads via File Manager/FTP, MySQL creation & migration, Laravel environment setup',
+        'Configured SSL certificates and HTTPS across all client sites',
+        'Handled post-launch maintenance: backups, error troubleshooting, performance checks and uptime monitoring',
+        'Coordinated go-lives directly with UK clients, delivering zero-downtime launches',
+      ],
+      tech: ['Hostinger', 'cPanel', 'Railway', 'DNS', 'SSL/TLS', 'FTP', 'Git'],
+    },
+    {
+      role: 'AI Application Developer',
+      company: 'Personal Projects — Vercel',
+      badge: '2025 • Active',
+      label: 'Focus', value: 'AI / LLM Apps', width: '80%',
+      points: [
+        'Built AI-powered web apps using Python Flask integrated with Gemini API and Groq API (LLM)',
+        'Developed AI Expense Tracker — auto-categorizes expenses and gives smart insights using Gemini',
+        'Built AI Chat App with ultra-fast LLM responses powered by Groq, plus a native Android version in Kotlin & Jetpack Compose',
+        'Deployed AI projects live on Vercel with secure API key and environment variable management',
+      ],
+      tech: ['Python', 'Flask', 'Gemini API', 'Groq API', 'LLM', 'Kotlin', 'Vercel'],
+    },
+    {
+      role: 'WordPress Developer & SEO Specialist',
+      company: 'Freelance Projects',
+      badge: '1 Year',
+      label: 'Duration', value: '1 Year', width: '60%',
+      points: [
+        'Built WordPress websites using Divi Builder and Elementor with custom layouts and themes',
+        'Performed full SEO audits — fixed 404 broken links with proper 301 redirects across all pages',
+        'Added meta tags, structured data (Schema), and on-page SEO to improve search rankings',
+        'Certified in WordPress Development from DigiSkills.pk',
+      ],
+      tech: ['WordPress', 'Divi Builder', 'Elementor', 'SEO', 'PHP', 'CSS'],
+    },
+    {
+      role: 'Frontend Developer',
+      company: 'Freelance & Projects',
+      badge: '2 Years',
+      label: 'Duration', value: '2 Years', width: '100%',
+      points: [
+        'Built responsive, mobile-first UIs using HTML5, CSS3, Bootstrap, JavaScript, jQuery and React',
+        'Developed interactive web pages with modern design patterns and animations',
+        'Ensured cross-browser compatibility and optimized page performance',
+      ],
+      tech: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'jQuery', 'React'],
+    },
+  ];
+
   return (
     <>
       <canvas id="bg-canvas" ref={canvasRef}></canvas>
@@ -252,12 +360,15 @@ export default function App() {
           <div className="hero-tag">✦ Full Stack Developer &amp; AI Builder</div>
           <h1 className="hero-name"><span>Shahida Bibi</span></h1>
           <p className="hero-title">
-            PHP Laravel · Python Flask · AI/LLM Integration<br />
-            Building scalable web apps &amp; intelligent AI solutions
+            Laravel · React · Node.js · Python Flask · REST APIs · AI/LLM Integration<br />
+            Building, deploying &amp; scaling web apps and AI-powered products
           </p>
           <div className="hero-btns">
             <button className="btn-primary" onClick={() => scrollTo('#projects')}>View Projects</button>
             <button className="btn-outline" onClick={() => scrollTo('#contact')}>Contact Me</button>
+            {/* Put your CV PDF in the /public folder with this exact name */}
+            <a className="btn-outline" href="/Shahida_Bibi_Full_Stack_Developer_CV.pdf" download
+               style={{ textDecoration: 'none', display: 'inline-block' }}>⬇ Download CV</a>
           </div>
         </div>
       </section>
@@ -274,11 +385,12 @@ export default function App() {
           </div>
           <div className="about-text">
             <h2>Hello, I'm Shahida 👋</h2>
-            <p>Results-driven Full Stack Developer with 3+ years of experience in PHP Laravel, Python Flask, and AI/LLM integrations. I build modern, responsive web apps and intelligent AI-powered solutions.</p>
-            <p>I've delivered 15+ live projects for UK-based clients and built AI apps using Gemini and Groq APIs — focused on clean, optimized, and user-friendly solutions.</p>
+            <p>Full Stack Developer with 3+ years of professional experience in PHP Laravel, Python Flask, React and AI/LLM integrations. I own products end-to-end — from backend architecture and REST/third-party API integration to deployment, security and post-launch support.</p>
+            <p>I've delivered 15+ live production projects for UK-based clients, built a complete CRM &amp; HR platform solo (role-based auth, PWA, live on Railway), cut a client site's load time from 24s to under 2s, and built AI apps using Gemini and Groq APIs. I work daily in English with international clients.</p>
             <div className="about-stats">
               <div className="stat"><div className="stat-num">3+</div><div className="stat-label">Years Exp</div></div>
-              <div className="stat"><div className="stat-num">15+</div><div className="stat-label">Projects</div></div>
+              <div className="stat"><div className="stat-num">15+</div><div className="stat-label">Live Projects</div></div>
+              <div className="stat"><div className="stat-num">24s→2s</div><div className="stat-label">Load Time</div></div>
               <div className="stat"><div className="stat-num">4</div><div className="stat-label">Certificates</div></div>
             </div>
           </div>
@@ -307,99 +419,27 @@ export default function App() {
           <div className="title-line"></div>
         </div>
         <div className="exp-wrapper">
-
-          <div className="exp-card reveal">
-            <div className="exp-header">
-              <div className="exp-left">
-                <div className="exp-role">Full Stack PHP Laravel Developer</div>
-                <div className="exp-company">Soft Access Pvt Ltd — Lahore, Pakistan</div>
+          {experience.map((e, i) => (
+            <div key={i} className="exp-card reveal">
+              <div className="exp-header">
+                <div className="exp-left">
+                  <div className="exp-role">{e.role}</div>
+                  <div className="exp-company">{e.company}</div>
+                </div>
+                <div className="exp-badge">{e.badge}</div>
               </div>
-              <div className="exp-badge">2 Years • Current</div>
-            </div>
-            <div className="exp-duration-bar">
-              <div className="exp-duration-label"><span>Duration</span><span>2 Years</span></div>
-              <div className="bar-track"><div className="bar-fill" style={{ width: '100%' }}></div></div>
-            </div>
-            <ul className="exp-points">
-              <li>Developed and maintained multiple live web applications for UK-based clients using Laravel &amp; Livewire</li>
-              <li>Built scalable RESTful APIs and backend systems with PHP, Laravel, and MySQL</li>
-              <li>Delivered 13+ production projects including iCanFix, KwikFix Phones, Fon Expert, House of Gadgets, and more</li>
-              <li>Implemented dynamic service listings, booking systems, POS, and admin panels</li>
-              <li>Optimized site performance — reduced page load from 24s to under 2s on iCanFix using Laravel caching</li>
-            </ul>
-            <div className="exp-tech">
-              {['Laravel', 'PHP', 'Livewire', 'MySQL', 'REST API', 'JavaScript', 'HTML/CSS'].map((t, i) => <span key={i}>{t}</span>)}
-            </div>
-          </div>
-
-          <div className="exp-card reveal">
-            <div className="exp-header">
-              <div className="exp-left">
-                <div className="exp-role">AI Application Developer</div>
-                <div className="exp-company">Personal Projects — Vercel</div>
+              <div className="exp-duration-bar">
+                <div className="exp-duration-label"><span>{e.label}</span><span>{e.value}</span></div>
+                <div className="bar-track"><div className="bar-fill" style={{ width: e.width }}></div></div>
               </div>
-              <div className="exp-badge">2025 • Active</div>
-            </div>
-            <div className="exp-duration-bar">
-              <div className="exp-duration-label"><span>Focus</span><span>AI / LLM Apps</span></div>
-              <div className="bar-track"><div className="bar-fill" style={{ width: '80%' }}></div></div>
-            </div>
-            <ul className="exp-points">
-              <li>Built AI-powered web apps using Python Flask integrated with Gemini API and Groq API (LLM)</li>
-              <li>Developed AI Expense Tracker — auto-categorizes expenses and gives smart insights using Gemini</li>
-              <li>Built AI Chat App with ultra-fast LLM responses powered by Groq and clean conversational UI</li>
-              <li>Deployed all AI projects live on Vercel with secure API key and environment variable management</li>
-            </ul>
-            <div className="exp-tech">
-              {['Python', 'Flask', 'Gemini API', 'Groq API', 'LLM', 'Vercel'].map((t, i) => <span key={i}>{t}</span>)}
-            </div>
-          </div>
-
-          <div className="exp-card reveal">
-            <div className="exp-header">
-              <div className="exp-left">
-                <div className="exp-role">WordPress Developer &amp; SEO Specialist</div>
-                <div className="exp-company">Freelance Projects</div>
+              <ul className="exp-points">
+                {e.points.map((pt, j) => <li key={j}>{pt}</li>)}
+              </ul>
+              <div className="exp-tech">
+                {e.tech.map((t, j) => <span key={j}>{t}</span>)}
               </div>
-              <div className="exp-badge">1 Year</div>
             </div>
-            <div className="exp-duration-bar">
-              <div className="exp-duration-label"><span>Duration</span><span>1 Year</span></div>
-              <div className="bar-track"><div className="bar-fill" style={{ width: '60%' }}></div></div>
-            </div>
-            <ul className="exp-points">
-              <li>Built WordPress websites using Divi Builder and Elementor with custom layouts and themes</li>
-              <li>Performed full SEO audits — fixed 404 broken links with proper 301 redirects across all pages</li>
-              <li>Added meta tags, structured data (Schema), and on-page SEO to improve search rankings</li>
-              <li>Certified in WordPress Development from DigiSkills.pk</li>
-            </ul>
-            <div className="exp-tech">
-              {['WordPress', 'Divi Builder', 'Elementor', 'SEO', 'PHP', 'CSS'].map((t, i) => <span key={i}>{t}</span>)}
-            </div>
-          </div>
-
-          <div className="exp-card reveal">
-            <div className="exp-header">
-              <div className="exp-left">
-                <div className="exp-role">Frontend Developer</div>
-                <div className="exp-company">Freelance &amp; Projects</div>
-              </div>
-              <div className="exp-badge">2 Years</div>
-            </div>
-            <div className="exp-duration-bar">
-              <div className="exp-duration-label"><span>Duration</span><span>2 Years</span></div>
-              <div className="bar-track"><div className="bar-fill" style={{ width: '100%' }}></div></div>
-            </div>
-            <ul className="exp-points">
-              <li>Built responsive, mobile-first UIs using HTML5, CSS3, Bootstrap, JavaScript, and jQuery</li>
-              <li>Developed interactive web pages with modern design patterns and animations</li>
-              <li>Ensured cross-browser compatibility and optimized page performance</li>
-            </ul>
-            <div className="exp-tech">
-              {['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'jQuery', 'React'].map((t, i) => <span key={i}>{t}</span>)}
-            </div>
-          </div>
-
+          ))}
         </div>
       </section>
 
@@ -407,7 +447,7 @@ export default function App() {
       <section id="projects">
         <div className="section-title reveal">
           <h2>Projects</h2>
-          <p>Live AI apps, WordPress sites &amp; real-world web applications</p>
+          <p>Live AI apps, SaaS-style platforms &amp; real-world web applications</p>
           <div className="title-line"></div>
         </div>
         <div className="projects-grid">
