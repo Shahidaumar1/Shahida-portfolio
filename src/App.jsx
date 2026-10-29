@@ -101,19 +101,27 @@ export default function App() {
 
   // ── SKILLS ──────────────────────────────────────────────────────────────────
   const skills = [
-    'PHP', 'Laravel', 'Livewire', 'Python', 'Flask', 'CodeIgniter',
+    'PHP 8.2', 'Laravel 12', 'Livewire', 'Eloquent ORM', 'RBAC', 'Multi-Tenant SaaS', 'POS Systems', 'Python', 'Flask', 'CodeIgniter',
     'JavaScript', 'React', 'Vue.js', 'Node.js', 'HTML5', 'CSS3', 'Bootstrap', 'jQuery',
     'REST API', 'Payment Gateway Integration', 'Third-Party APIs',
-    'MySQL', 'Auth & Role-Based Access', 'PWA', 'Chart.js',
+    'MySQL / MariaDB', 'Auth & Role-Based Access', 'PWA', 'Chart.js',
     'AI Integration', 'LLM APIs', 'Gemini API', 'Groq API', 'Prompt Engineering',
     'Claude', 'Cursor', 'Codex',
     'Kotlin', 'Jetpack Compose', 'C++',
-    'Railway', 'Hostinger / cPanel', 'Gunicorn', 'DNS & SSL/TLS', 'Git', 'GitHub',
+    'Linux', 'Cron Jobs', 'SMTP', 'Railway', 'Hostinger / cPanel', 'Gunicorn', 'DNS & SSL/TLS', 'Git', 'GitHub',
     'WordPress', 'Divi Builder', 'Elementor', 'SEO',
   ];
 
   // ── PROJECTS ─────────────────────────────────────────────────────────────────
   const projects = [
+    // Current SaaS project
+    {
+      icon: '🏪',
+      title: 'Repair Access — Multi-Tenant POS & Repair SaaS',
+      live: false,
+      desc: 'Multi-tenant POS and repair management SaaS for mobile phone repair businesses. Repair booking, technician assignment, quotation approvals, POS checkout, inventory, purchase orders, supplier returns, VAT and financial reports, branch-level data isolation with role-based access, and automated repair-status emails (Laravel Mail, SMTP, Cron Jobs). Currently in active development.',
+      tags: ['PHP 8.2', 'Laravel 12', 'MySQL', 'Multi-Tenant', 'RBAC', 'Blade', 'Linux', 'cPanel'],
+    },
     // Flagship
     {
       icon: '🧩',
@@ -257,6 +265,21 @@ export default function App() {
   // ── EXPERIENCE ───────────────────────────────────────────────────────────────
   const experience = [
     {
+      role: 'Full-Stack Laravel Developer — Repair Access (SaaS)',
+      company: 'Multi-Tenant POS & Repair Management SaaS',
+      badge: 'Current',
+      label: 'Focus', value: 'SaaS Product', width: '90%',
+      points: [
+        'Building a multi-tenant POS and repair management SaaS for mobile repair businesses using Laravel 12, Eloquent ORM, migrations and role-based authentication',
+        'Implemented repair booking, technician assignment, diagnostics, quotation approvals and repair status management',
+        'Built POS checkout, inventory tracking, purchase orders, supplier returns, financial reporting and VAT management',
+        'Implemented branch-level data isolation with role-based access for owners, managers and staff',
+        'Automated repair-status emails with Laravel Mail, SMTP, scheduled Cron Jobs and customer consent controls',
+        'Managed production deployment, migrations and maintenance on Linux-based cPanel hosting',
+      ],
+      tech: ['Laravel 12', 'PHP 8.2', 'MySQL', 'Multi-Tenant', 'RBAC', 'SMTP', 'Cron Jobs', 'Linux'],
+    },
+    {
       role: 'Full Stack PHP Laravel Developer',
       company: 'Soft Access Pvt Ltd — Lahore, Pakistan',
       badge: '3 Years • Current',
@@ -385,7 +408,7 @@ export default function App() {
           </div>
           <div className="about-text">
             <h2>Hello, I'm Shahida 👋</h2>
-            <p>Full Stack Developer with 3+ years of professional experience in PHP Laravel, Python Flask, React and AI/LLM integrations. I own products end-to-end — from backend architecture and REST/third-party API integration to deployment, security and post-launch support.</p>
+            <p>Full Stack Developer with 3+ years of professional experience in PHP Laravel, Python Flask, React and AI/LLM integrations. I own products end-to-end, including a multi-tenant POS &amp; repair management SaaS (Repair Access) — from backend architecture and REST/third-party API integration to deployment, security and post-launch support.</p>
             <p>I've delivered 15+ live production projects for UK-based clients, built a complete CRM &amp; HR platform solo (role-based auth, PWA, live on Railway), cut a client site's load time from 24s to under 2s, and built AI apps using Gemini and Groq APIs. I work daily in English with international clients.</p>
             <div className="about-stats">
               <div className="stat"><div className="stat-num">3+</div><div className="stat-label">Years Exp</div></div>
